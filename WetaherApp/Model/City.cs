@@ -4,10 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WetaherApp.model
+namespace WeatherApp.Model
 {
-
-
     public class Area
     {
         public string ID { get; set; }
@@ -24,4 +22,6 @@ namespace WetaherApp.model
         public Area Country { get; set; }
         public Area AdministrativeArea { get; set; }
     }
+
+
 }

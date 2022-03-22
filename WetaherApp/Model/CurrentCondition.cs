@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WetaherApp.model
+namespace WeatherApp.Model
 {
-
     public class Units
     {
         public int Value { get; set; }
@@ -20,7 +19,7 @@ namespace WetaherApp.model
         public Units Imperial { get; set; }
     }
 
-    public class CurrentConditiion
+    public class CurrentConditions
     {
         public DateTime LocalObservationDateTime { get; set; }
         public int EpochTime { get; set; }
