@@ -20,6 +20,7 @@ namespace WeatherApp.ViewModel
         private CurrentConditions currentConditions;
         private string query;
         private City selectedCity;
+         
 
 
         public string Query
@@ -50,7 +51,7 @@ namespace WeatherApp.ViewModel
             {
                 selectedCity = value;
                 OnPropertyChanged("SelectedCity");
-                GetCurrentConditions();
+                GetCurrentConditions(selectedCity.Key);
             }
         }
 
@@ -66,12 +67,12 @@ namespace WeatherApp.ViewModel
                 };
                 CurrentConditions = new CurrentConditions
                 {
-                    WeatherText = "sunny",
+                    WeatherText = "Heavy snow",
                     Temperature = new Temperature
                     {
                         Metric = new Units
                         {
-                            Value = "7"
+                            Value = "-3"
                         }
                     }
                 };
@@ -82,10 +83,13 @@ namespace WeatherApp.ViewModel
 
         }
 
-        private async void GetCurrentConditions()
+        private async void GetCurrentConditions(string k)
         {
             Query = string.Empty;
-            Cities.Clear();
+            //City city = selectedCity;
+            //string key = selectedCity.Key;
+            if (Cities.Count > 0)
+                Cities.Clear();
             CurrentConditions = await AccuWeatherHelper.GetCurrentConditions(selectedCity.Key);
         }
 
